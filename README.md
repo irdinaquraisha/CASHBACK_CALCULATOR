@@ -1,29 +1,55 @@
 # 🚀 E-Wallet Architecture Auditor V3.0
-### *Sequential vs. Concurrent vs. Parallel Performance Analysis*
+### *Performance Analysis: Sequential vs. Concurrent vs. Parallel*
 
-![Python Version](https://img.shields.io/badge/python-3.7%2B-blue)
-![License](https://img.shields.io/badge/license-MIT-green)
-
-## 📌 Project Overview
-This project is a high-performance auditing tool designed to simulate an E-Wallet cashback system. The primary goal is to demonstrate the practical differences between three major computing architectures: **Sequential**, **Concurrent (Threading)**, and **Parallel (Multiprocessing)**. 
-
-By processing large volumes of transaction data (up to 10,000+ items) with varying mathematical complexity, this tool provides a clear benchmark of how modern CPUs handle heavy workloads.
+## 📌 1. Project Overview
+This application is a high-performance auditing tool designed to simulate an E-Wallet cashback system. It calculates a 5% cashback (capped at RM5.00) for thousands of transactions. The project demonstrates the practical execution differences between three major computing architectures:
+* **Sequential:** Traditional one-by-one processing.
+* **Concurrent (Threading):** Task overlapping to hide latency.
+* **Parallel (Multiprocessing):** True simultaneous execution using multiple CPU cores.
 
 ---
 
-## 💻 System Requirements
+## 💻 2. System Requirements
 | Component | Requirement |
 | :--- | :--- |
 | **Language** | Python 3.7 or higher |
-| **CPU** | Quad-core processor (recommended) |
-| **RAM** | 4GB minimum |
-| **Libraries** | `matplotlib` (External), `multiprocessing`, `threading`, `decimal` (Built-in) |
+| **External Library** | `matplotlib` (for data visualization) |
+| **Built-in Modules** | `multiprocessing`, `threading`, `decimal`, `os`, `time` |
+| **Hardware** | Multi-core CPU (Quad-core recommended) |
 
 ---
 
-## 🛠️ Installation & Setup
-
-1. **Clone the Repository**
+## 🛠️ 3. Installation Steps
+1. **Install Python:** Ensure Python is installed on your system via [python.org](https://www.python.org/).
+2. **Install Matplotlib:** Open your terminal and run:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/CASHBACK_PROJECT.git](https://github.com/YOUR_USERNAME/CASHBACK_PROJECT.git)
-   cd CASHBACK_PROJECT
+   pip install matplotlib
+3. **Setup Workspace:** Create a main folder: CASHBACK_PROJECT
+4. **Create a sub-folder:** CASHBACK_PROJECT/receipt
+5. **Save Script:** Save the project code as importmultiprocessing.py inside the main folder.
+
+## 🏃 4. How to Run the Program
+1. Open your terminal or IDE and navigate to the CASHBACK_PROJECT directory.
+2. Launch the application:
+```Bash
+python importprocessing.py
+```
+3. **Follow the Prompts:**
+Enter a Merchant Name and Auditor ID.
+Set Transaction Count (Recommended: 5000).
+Set Complexity (Recommended for Stress Test: 500000).
+4. **View Results:** The system will display two graphs. Close the graph window to see the option to run another audit or exit.
+
+## 📊 5. Performance Logic Explained
+| Architecture | Implementation | Best For... | Behavior |
+| :--- | :--- | :--- | :--- |
+| **Sequential** | Standard Loop | Small tasks | Processes one item at a time; moves to the next only when the current one finishes. |
+| **Concurrent** | `threading` | IO-Bound tasks | Tasks "overlap." While one task waits for a simulated server response, another begins. |
+| **Parallel** | `multiprocessing` | CPU-Bound tasks | Tasks run at the exact same physical moment by utilizing multiple CPU cores simultaneously. |
+
+## 📝 6. Sample Input/Output
+### User Input Example:
+* **Merchant:** Global Mart
+* **Auditor:** QURAISHA_01
+* **Transactions:** 5000
+* **Complexity:** 500000
