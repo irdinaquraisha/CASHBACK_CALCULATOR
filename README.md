@@ -65,3 +65,20 @@ Set Complexity (Recommended for Stress Test: 500000).
 * **Auditor:** QURAISHA_01
 * **Transactions:** 5000
 * **Complexity:** 500000
+ 
+**Generated Audit Receipt**
+==========================================
+       GLOBAL MART - SYSTEM AUDIT
+==========================================
+Auditor ID:     QURAISHA_01
+Date:           2026-04-17 10:30:00
+Processor Cores:4
+------------------------------------------
+PERFORMANCE BENCHMARKS:
+1. Sequential:  12.8420s
+2. Concurrent:  6.4210s (2.00x Speedup)
+3. Parallel:    3.2055s (4.01x Speedup) <-- WINNER
+------------------------------------------
+TOTAL VOLUME:   RM750,250.00
+TOTAL SAVINGS:  RM11,420.50
+==========================================
