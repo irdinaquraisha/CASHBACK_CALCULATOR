@@ -1,5 +1,17 @@
+
 # 🚀 E-Wallet Architecture Auditor V3.0
+
+<p align="center">
+  <img src="logo.png" width="400">
+</p>
+
+> **Audit Professional:** MUHAMMAD AMIRUL IMAN BIN MOHD ASHRAF  
+> **Course:** ITT440-Individual Assignment  
+> **Student ID:** 2023436086  
+
+---
 ### *Performance Analysis: Sequential vs. Concurrent vs. Parallel*
+
 
 ## 📌 1. Project Overview
 This application is a high-performance auditing tool designed to simulate an E-Wallet cashback system. It calculates a 5% cashback (capped at RM5.00) for thousands of transactions. The project demonstrates the practical execution differences between three major computing architectures:
