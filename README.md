@@ -61,24 +61,31 @@ Set Complexity (Recommended for Stress Test: 500000).
 
 ## 📝 6. Sample Input/Output
 ### User Input Example:
-* **Merchant:** Global Mart
-* **Auditor:** QURAISHA_01
+* **Merchant:** Grab
+* **Auditor:** Quraisha
 * **Transactions:** 5000
 * **Complexity:** 500000
  
 **Generated Audit Receipt**
+```text
 ==========================================
-       GLOBAL MART - SYSTEM AUDIT
+       GRAB - SYSTEM AUDIT
 ==========================================
-Auditor ID:     QURAISHA_01
-Date:           2026-04-17 10:30:00
+Auditor ID:     Quraisha
+Date:           2026-04-20 13:21:51
 Processor Cores:4
 ------------------------------------------
 PERFORMANCE BENCHMARKS:
-1. Sequential:  12.8420s
-2. Concurrent:  6.4210s (2.00x Speedup)
-3. Parallel:    3.2055s (4.01x Speedup) <-- WINNER
+1. Sequential:  1.0530s
+2. Concurrent:  0.3650s (2.89x Speedup)
+3. Parallel:    1.7169s (0.61x Speedup)
 ------------------------------------------
-TOTAL VOLUME:   RM750,250.00
-TOTAL SAVINGS:  RM11,420.50
+FINANCIAL TOTALS:
+Total Processed: 500 items
+Total Volume:    RM76,747.31
+Total Cashback:  RM2,126.10
+------------------------------------------
+DISTRIBUTION:
+Capped (RM5):    341
+Under Cap:       159
 ==========================================
