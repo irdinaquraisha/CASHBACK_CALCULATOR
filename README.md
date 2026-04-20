@@ -2,12 +2,12 @@
 # 🚀 E-Wallet Architecture Auditor V3.0
 
 <p align="center">
-  <img src="logo.png" width="400">
+  <img src="logo.png" width="600">
 </p>
 
-> **Audit Professional:** MUHAMMAD AMIRUL IMAN BIN MOHD ASHRAF  
+> **Audit Professional:** Quraisha Irdina Binti Hazimin  
 > **Course:** ITT440-Individual Assignment  
-> **Student ID:** 2023436086  
+> **Student ID:** 2025479998  
 
 ---
 ### *Performance Analysis: Sequential vs. Concurrent vs. Parallel*
