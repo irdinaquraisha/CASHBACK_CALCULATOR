@@ -69,25 +69,25 @@ Set Complexity (Recommended for Stress Test: 500000).
 **Generated Audit Receipt**
 ```text
 ==========================================
-       GRAB - SYSTEM AUDIT
+       GRAB  - SYSTEM AUDIT
 ==========================================
-Auditor ID:     Quraisha
-Date:           2026-04-20 13:21:51
+Auditor ID:     Quraisha (2025479998)
+Date:           2026-04-21 15:18:28
 Processor Cores:4
 ------------------------------------------
 PERFORMANCE BENCHMARKS:
-1. Sequential:  1.0530s
-2. Concurrent:  0.3650s (2.89x Speedup)
-3. Parallel:    1.7169s (0.61x Speedup)
+1. Sequential:  66.7254s
+2. Concurrent:  55.8931s (1.19x Speedup)
+3. Parallel:    25.8149s (2.58x Speedup)
 ------------------------------------------
 FINANCIAL TOTALS:
-Total Processed: 500 items
-Total Volume:    RM76,747.31
-Total Cashback:  RM2,126.10
+Total Processed: 5,000 items
+Total Volume:    RM757,111.19
+Total Cashback:  RM21,170.08
 ------------------------------------------
 DISTRIBUTION:
-Capped (RM5):    341
-Under Cap:       159
+Capped (RM5):    3,386
+Under Cap:       1,614
 ==========================================
 ```
 # 🖼️ 7. Screenshots & Visuals
@@ -97,8 +97,8 @@ Under Cap:       159
 
 | Metric | Sequential (Baseline) | Concurrent (Threading) | Parallel (Multiprocessing) |
 | :--- | :--- | :--- | :--- |
-| **Execution Time** | **202.077s** | **153.955s** | **50.925s** |
-| **Speedup Factor** | 1.0x (Reference) | ~1.31x Faster | **~3.97x Faster** |
+| **Execution Time** | **66.725s** | **55.293s** | **25.815s** |
+| **Speedup Factor** | 1.0x (Reference) | ~1.19x Faster | **~2.58x Faster** |
 | **CPU Utilization** | Single Core (100%) | Single Core (Shared) | **Multiple Cores (4x 100%)** |
 | **Efficiency** | Lowest | Moderate | **Highest** |
 
@@ -106,16 +106,16 @@ Under Cap:       159
 
 ### 🔍 Key Findings
 
-#### **1. Architecture Performance (The "Winner")**
-The bar chart in **Figure 3** demonstrates a massive performance jump when switching to **Parallel** processing:
-* **The Problem:** Sequential processing creates a massive bottleneck, taking over 3 minutes.
-* **The Solution:** By bypassing the Python Global Interpreter Lock (GIL) and using 4 physical CPU cores, the **Parallel** mode finishes in just **50 seconds**.
-* **Observation:** The speedup (~4x) correlates perfectly with the hardware (4 cores), proving the code is highly optimized.
+#### **1. Architecture Performance**
+The bar chart demonstrates a massive performance jump when switching to **Parallel** processing:
+* **The Problem:** Sequential processing creates a bottleneck, requiring 66.725 seconds to complete the 5,000-item audit.
+* **The Solution:** By bypassing the Python Global Interpreter Lock (GIL) and distributing the workload across 4 physical CPU cores, the **Parallel** mode finishes in just **25.815 seconds**.
+* **Observation:** Achieved a **2.58x speedup**. While Python's overhead prevents a perfect 4x speedup, this parallel implementation is nearly 3 times more efficient than standard sequential execution.
 
 #### **2. Cashback Distribution Insights**
 The pie chart reveals the financial behavior of the simulated dataset:
-* **68.1% (Max RM5):** The majority of transactions were high-value (RM100+), hitting the cashback ceiling.
-* **31.9% (Below RM5):** These represent smaller "micro-transactions" where the 5% reward was less than RM5.
+* **67.7% (Max RM5):** The majority of transactions were high-value (RM100+), hitting the cashback ceiling.
+* **32.3% (Below RM5):** These represent smaller "micro-transactions" where the 5% reward was less than RM5.
 
 ---
 
