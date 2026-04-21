@@ -89,3 +89,7 @@ DISTRIBUTION:
 Capped (RM5):    341
 Under Cap:       159
 ==========================================
+```
+# 🖼️ 7. Screenshots & Visuals
+**Staircase Performance Benchmark**
+<img src="receipt.png" width="600">
