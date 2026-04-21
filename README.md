@@ -119,5 +119,27 @@ The pie chart reveals the financial behavior of the simulated dataset:
 
 ---
 
+# 📂 8. Source Code Technical Breakdown
+The core of this project lies in how the AuditManager class handles data across three different execution patterns:
+**A. Sequential Logic**
+Uses a simple for loop. This is the baseline for performance comparison.
+# Processes one by one
+```
+for transaction in data:
+    self.calculate_cashback(transaction)
+```
+**B. Concurrent (Threading) Logic**
+Uses ```threading.Thread.```It manages multiple tasks by switching between them quickly. While it doesn't run code simultaneously (due to Python's GIL), it is excellent for overlapping "wait times."
+
+**C. Parallel (Multiprocessing) Logic**
+Uses the ```multiprocessing``` module to bypass the Global Interpreter Lock (GIL). It creates a pool of workers that run on separate CPU cores, allowing for true simultaneous calculation.
+```# Distributes workload across 4 CPU cores
+with multiprocessing.Pool(processes=4) as pool:
+    results = pool.map(self.calculate_cashback, data)
+```
+🔗 Source Code Files
+The complete implementation can be found in the following file within this repository:
+* import multiprocessing.py — Contains the GUI logic, data generation, and architecture benchmark classes.
+
 ### 💡 Conclusion for Auditor Report
 The data confirms that for a real-world E-Wallet system, **Parallel Architecture** is the only viable solution for processing millions of transactions. Using standard Sequential loops would cause significant system lag and delay audit generation.
