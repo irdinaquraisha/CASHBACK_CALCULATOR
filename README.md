@@ -92,4 +92,32 @@ Under Cap:       159
 ```
 # 🖼️ 7. Screenshots & Visuals
 **Staircase Performance Benchmark**
-<img src="receipt.png" width="600">
+<img src="Figure_3.png" width="600">
+### Results & Performance Analysis
+
+| Metric | Sequential (Baseline) | Concurrent (Threading) | Parallel (Multiprocessing) |
+| :--- | :--- | :--- | :--- |
+| **Execution Time** | **202.077s** | **153.955s** | **50.925s** |
+| **Speedup Factor** | 1.0x (Reference) | ~1.31x Faster | **~3.97x Faster** |
+| **CPU Utilization** | Single Core (100%) | Single Core (Shared) | **Multiple Cores (4x 100%)** |
+| **Efficiency** | Lowest | Moderate | **Highest** |
+
+---
+
+### 🔍 Key Findings
+
+#### **1. Architecture Performance (The "Winner")**
+The bar chart in **Figure 3** demonstrates a massive performance jump when switching to **Parallel** processing:
+* **The Problem:** Sequential processing creates a massive bottleneck, taking over 3 minutes.
+* **The Solution:** By bypassing the Python Global Interpreter Lock (GIL) and using 4 physical CPU cores, the **Parallel** mode finishes in just **50 seconds**.
+* **Observation:** The speedup (~4x) correlates perfectly with the hardware (4 cores), proving the code is highly optimized.
+
+#### **2. Cashback Distribution Insights**
+The pie chart reveals the financial behavior of the simulated dataset:
+* **68.1% (Max RM5):** The majority of transactions were high-value (RM100+), hitting the cashback ceiling.
+* **31.9% (Below RM5):** These represent smaller "micro-transactions" where the 5% reward was less than RM5.
+
+---
+
+### 💡 Conclusion for Auditor Report
+The data confirms that for a real-world E-Wallet system, **Parallel Architecture** is the only viable solution for processing millions of transactions. Using standard Sequential loops would cause significant system lag and delay audit generation.
