@@ -121,9 +121,9 @@ The pie chart reveals the financial behavior of the simulated dataset:
 
 # 📂 8. Source Code Technical Breakdown
 The core of this project lies in how the AuditManager class handles data across three different execution patterns:
+
 **A. Sequential Logic**
 Uses a simple for loop. This is the baseline for performance comparison.
-# Processes one by one
 ```
 for transaction in data:
     self.calculate_cashback(transaction)
