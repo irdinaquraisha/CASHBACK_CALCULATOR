@@ -44,7 +44,7 @@ This application is a high-performance auditing tool designed to simulate an E-W
 1. Open your terminal or IDE and navigate to the CASHBACK_PROJECT directory.
 2. Launch the application:
 ```Bash
-python importprocessing.py
+python importmultiprocessing.py
 ```
 3. **Follow the Prompts:**
 Enter a Merchant Name and Auditor ID.
@@ -92,7 +92,7 @@ Under Cap:       159
 ```
 # 🖼️ 7. Screenshots & Visuals
 **Staircase Performance Benchmark**
-<img src="Figure_3.png" width="600">
+<img src="Result_Quraisha.png" width="600">
 ### Results & Performance Analysis
 
 | Metric | Sequential (Baseline) | Concurrent (Threading) | Parallel (Multiprocessing) |
