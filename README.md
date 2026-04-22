@@ -139,7 +139,7 @@ with multiprocessing.Pool(processes=4) as pool:
 ```
 🔗 Source Code Files
 The complete implementation can be found in the following file within this repository:
-* [**importmultiprocessing.py**](importmultiprocessing.py) — Contains the GUI logic, data generation, and architecture benchmark classes.
+* [**importmultiprocessing.py**](importmultiprocessing.py)
 
 ### 💡 Conclusion for Auditor Report
 The data confirms that for a real-world E-Wallet system, **Parallel Architecture** is the only viable solution for processing millions of transactions. Using standard Sequential loops would cause significant system lag and delay audit generation.
