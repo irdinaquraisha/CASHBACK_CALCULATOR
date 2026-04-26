@@ -14,10 +14,15 @@
 
 
 ## 📌 1. Project Overview
-This application is a high-performance auditing tool designed to simulate an E-Wallet cashback system. It calculates a 5% cashback (capped at RM5.00) for thousands of transactions. The project demonstrates the practical execution differences between three major computing architectures:
-* **Sequential:** Traditional one-by-one processing.
-* **Concurrent (Threading):** Task overlapping to hide latency.
-* **Parallel (Multiprocessing):** True simultaneous execution using multiple CPU cores.
+
+This application is a **High-Volume E-Wallet Auditor** designed to simulate real-world financial data processing at scale. The system performs complex cashback calculations for **8,000,000 transactions**, utilizing an optimized mathematical algorithm to determine rewards. 
+
+The project benchmarks three major computing architectures:
+* **Sequential:** Traditional serial processing (Baseline: **20.71s**).
+* **Concurrent (Threading):** Task overlapping via the `threading` module (**17.53s**).
+* **Parallel (Multiprocessing):** True simultaneous execution using multiple CPU cores to bypass the GIL (**9.97s**).
+
+This tool demonstrates a **2.08x performance increase** through parallelism and generates automated audit reports and visual data breakdowns.
 
 ---
 
