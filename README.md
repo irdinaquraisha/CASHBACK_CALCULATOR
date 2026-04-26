@@ -2,7 +2,7 @@
 # 🚀 High-Volume Cashback Calculator
 
 <p align="center">
-  <img src="logo(2).png" width="600">
+  <img src="logo (2).png" width="600">
 </p>
 
 > **Audit Professional:** Quraisha Irdina Binti Hazimin  
