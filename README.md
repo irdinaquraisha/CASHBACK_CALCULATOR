@@ -2,7 +2,7 @@
 # 🚀 High-Volume Cashback Calculator
 
 <p align="center">
-  <img src="logo.png" width="600">
+  <img src="logo(2).png" width="600">
 </p>
 
 > **Audit Professional:** Quraisha Irdina Binti Hazimin  
@@ -59,10 +59,10 @@ python importmultiprocessing.py
 
 ## 📝 6. Sample Input/Output
 ### User Input Example:
-* **Merchant:** Grab
-* **Username:** Quraisha
-* **Amount:** 5000
-* **Count:** 500000
+* **Merchant:** Shein  
+* **Username:** Irdina
+* **Amount:** 7500.00
+* **Count:** 8000000
  
 **Generated Audit Receipt**
 ```text
@@ -84,50 +84,64 @@ Parallel Time:      9.9721s
 ```
 # 🖼️ 7. Screenshots & Visuals
 **Staircase Performance Benchmark**
-<img src="Result_Quraisha.png" width="600">
+<img src="final_result.png" width="600">
 ### Results & Performance Analysis
 
 | Metric | Sequential (Baseline) | Concurrent (Threading) | Parallel (Multiprocessing) |
 | :--- | :--- | :--- | :--- |
-| **Execution Time** | **66.725s** | **55.293s** | **25.815s** |
-| **Speedup Factor** | 1.0x (Reference) | ~1.19x Faster | **~2.58x Faster** |
-| **CPU Utilization** | Single Core (100%) | Single Core (Shared) | **Multiple Cores (4x 100%)** |
+| **Execution Time** | **20.712s** | **17.527s** | **9.972s** |
+| **Speedup Factor** | 1.0x (Reference) | ~1.18x Faster | **~2.08x Faster** |
+| **CPU Utilization** | Single Core (100%) | Single Core (GIL Limited) | **Multiple Cores (4x 100%)** |
 | **Efficiency** | Lowest | Moderate | **Highest** |
+
+> **Note:** The Parallel method achieved the best results because the task is CPU-bound (heavy mathematical calculations), which benefits directly from additional physical
 
 ---
 
 ### 🔍 Key Findings
 
 #### **1. Architecture Performance**
-The bar chart demonstrates a massive performance jump when switching to **Parallel** processing:
-* **The Problem:** Sequential processing creates a bottleneck, requiring 66.725 seconds to complete the 5,000-item audit.
-* **The Solution:** By bypassing the Python Global Interpreter Lock (GIL) and distributing the workload across 4 physical CPU cores, the **Parallel** mode finishes in just **25.815 seconds**.
-* **Observation:** Achieved a **2.58x speedup**. While Python's overhead prevents a perfect 4x speedup, this parallel implementation is nearly 3 times more efficient than standard sequential execution.
+The performance metrics demonstrate a significant leap in efficiency when leveraging true parallelism:
 
-#### **2. Cashback Distribution Insights**
-The pie chart reveals the financial behavior of the simulated dataset:
-* **67.7% (Max RM5):** The majority of transactions were high-value (RM100+), hitting the cashback ceiling.
-* **32.3% (Below RM5):** These represent smaller "micro-transactions" where the 5% reward was less than RM5.
+* **The Bottleneck (Sequential):** Processing transactions one by one takes **20.712 seconds**. This method is limited to a single CPU core, creating a massive queue for high-volume data.
+* **The Mid-Ground (Threading):** Threading offers a slight improvement at **17.527 seconds**. However, because this is a CPU-bound task (heavy math), it remains largely restricted by Python’s Global Interpreter Lock (GIL).
+* **The Solution (Parallel):** By bypassing the GIL and distributing the workload across multiple physical CPU cores, the **Parallel** mode completes the task in just **9.972 seconds**.
+* **Observation:** This implementation achieves a **2.08x speedup**. While system overhead prevents a perfect 1:1 linear speedup, the Parallel mode is **over twice as efficient** as standard execution.
+
+### II. Financial Distribution Insights
+Analysis of the transaction breakdown (at a rate of 5% cashback):
+
+* **85.0% Product Value:** The core value of the goods processed.
+* **10.0% Tax:** Estimated tax overhead per transaction.
+* **5.0% User Cashback:** For a $7,500.00 transaction, the reward is **$375.00**.
+* **Scale Observation:** At a volume of 8M transactions, the system audited a total reward pool of **$3,000,000,000.00**.
 
 ---
 
 # 📂 8. Source Code Technical Breakdown
-The core of this project lies in how the AuditManager class handles data across three different execution patterns:
+The core of this project lies in how the script handles the ```complex_cashback_logic```—a CPU-intensive task involving 40 iterations of mathematical growth per transaction—across three distinct execution patterns:
 
 **A. Sequential Logic**
-Uses a simple for loop. This is the baseline for performance comparison.
+This method uses a list comprehension to process transactions one by one in a single serial stream. It is the baseline for performance comparison, showing the raw time required without any optimization.
 ```
-for transaction in data:
-    self.calculate_cashback(transaction)
+# Processes 8,000,000 transactions in a single loop
+[complex_cashback_logic(amount) for _ in range(iterations)]
 ```
 **B. Concurrent (Threading) Logic**
-Uses ```threading.Thread.```It manages multiple tasks by switching between them quickly. While it doesn't run code simultaneously (due to Python's GIL), it is excellent for overlapping "wait times."
+Uses the ```threading.Thread``` module to divide the workload into chunks (determined by ```num_threads```). While this manages multiple threads, it is still restricted by Python's **Global Interpreter Lock (GIL)**, meaning only one thread can execute Python bytecode at a time for this math-heavy task.
+```
+# Workload is split into chunks for each thread
+for _ in range(num_threads):
+    t = threading.Thread(target=worker)
+    t.start()
+```
 
 **C. Parallel (Multiprocessing) Logic**
-Uses the ```multiprocessing``` module to bypass the Global Interpreter Lock (GIL). It creates a pool of workers that run on separate CPU cores, allowing for true simultaneous calculation.
-```# Distributes workload across 4 CPU cores
-with multiprocessing.Pool(processes=4) as pool:
-    results = pool.map(self.calculate_cashback, data)
+This is the most efficient method for this specific project. It uses multiprocessing.Pool to spawn separate processes, each with its own Python interpreter and memory space. This bypasses the GIL entirely, allowing the 8,000,000 transactions to be calculated truly simultaneously across multiple CPU cores.
+```
+# Uses starmap to distribute chunks across physical CPU cores
+with multiprocessing.Pool(processes=num_procs) as pool:
+    pool.starmap(parallel_worker_helper, args)
 ```
 🔗 Source Code Files
 The complete implementation can be found in the following file within this repository:
