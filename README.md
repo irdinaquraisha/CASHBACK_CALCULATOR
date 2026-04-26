@@ -1,5 +1,5 @@
 
-# 🚀 E-Wallet Architecture Auditor V3.0
+# 🚀 High-Volume Cashback Calculator
 
 <p align="center">
   <img src="logo.png" width="600">
@@ -22,20 +22,20 @@ This application is a high-performance auditing tool designed to simulate an E-W
 ---
 
 ## 💻 2. System Requirements
-| Component | Requirement |
+| Requirement | Minimum Specification |
 | :--- | :--- |
-| **Language** | Python 3.7 or higher |
-| **External Library** | `matplotlib` (for data visualization) |
-| **Built-in Modules** | `multiprocessing`, `threading`, `decimal`, `os`, `time` |
-| **Hardware** | Multi-core CPU (Quad-core recommended) |
+| **OS** | Windows 10+, macOS, or Linux |
+| **Language** | Python 3.7+ |
+| **Libraries** | `matplotlib`, `pandas`, `numpy` |
+| **Hardware** | Multi-core CPU (recommended for Parallel testing) |
 
 ---
 
 ## 🛠️ 3. Installation Steps
 1. **Install Python:** Ensure Python is installed on your system via [python.org](https://www.python.org/).
-2. **Install Matplotlib:** Open your terminal and run:
+2. **Install dependencies:** 
    ```bash
-   pip install matplotlib
+   pip install matplotlib pandas numpy
 3. **Setup Workspace:** Create a main folder: CASHBACK_PROJECT
 4. **Create a sub-folder:** CASHBACK_PROJECT/receipt
 5. **Save Script:** Save the project code as importmultiprocessing.py inside the main folder.
@@ -47,10 +47,8 @@ This application is a high-performance auditing tool designed to simulate an E-W
 python importmultiprocessing.py
 ```
 3. **Follow the Prompts:**
-Enter a Merchant Name and Auditor ID.
-Set Transaction Count (Recommended: 5000).
-Set Complexity (Recommended for Stress Test: 500000).
-4. **View Results:** The system will display two graphs. Close the graph window to see the option to run another audit or exit.
+   Enter Merchant, Username and amount.
+5. **View Results:** The system will display two graphs. Close the graph window to see the option to run another audit or exit.
 
 ## 📊 5. Performance Logic Explained
 | Architecture | Implementation | Best For... | Behavior |
@@ -62,33 +60,27 @@ Set Complexity (Recommended for Stress Test: 500000).
 ## 📝 6. Sample Input/Output
 ### User Input Example:
 * **Merchant:** Grab
-* **Auditor:** Quraisha
-* **Transactions:** 5000
-* **Complexity:** 500000
+* **Username:** Quraisha
+* **Amount:** 5000
+* **Count:** 500000
  
 **Generated Audit Receipt**
 ```text
-==========================================
-       GRAB  - SYSTEM AUDIT
-==========================================
-Auditor ID:     Quraisha (2025479998)
-Date:           2026-04-21 15:18:28
-Processor Cores:4
-------------------------------------------
-PERFORMANCE BENCHMARKS:
-1. Sequential:  66.7254s
-2. Concurrent:  55.8931s (1.19x Speedup)
-3. Parallel:    25.8149s (2.58x Speedup)
-------------------------------------------
-FINANCIAL TOTALS:
-Total Processed: 5,000 items
-Total Volume:    RM757,111.19
-Total Cashback:  RM21,170.08
-------------------------------------------
-DISTRIBUTION:
-Capped (RM5):    3,386
-Under Cap:       1,614
-==========================================
+=============================================
+           OFFICIAL CASHBACK RECEIPT
+=============================================
+Merchant:           SHEIN
+Customer Name:      irdina
+Single Amount:      $7,500.00
+Transaction Count:  8,000,000
+---------------------------------------------
+TOTAL CASHBACK:     $3,000,000,000.00
+---------------------------------------------
+PERFORMANCE METRICS:
+Sequential Time:    20.7122s
+Threading Time:     17.5272s
+Parallel Time:      9.9721s
+=============================================
 ```
 # 🖼️ 7. Screenshots & Visuals
 **Staircase Performance Benchmark**
