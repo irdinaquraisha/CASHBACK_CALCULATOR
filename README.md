@@ -15,7 +15,7 @@
 
 ## 📌 1. Project Overview
 
-This application is a **High-Volume E-Wallet Auditor** designed to simulate real-world financial data processing at scale. The system performs complex cashback calculations for **8,000,000 transactions**, utilizing an optimized mathematical algorithm to determine rewards. 
+This application is a **High-Volume E-Wallet Auditor** designed to simulate real-world financial data processing at scale. The system performs complex cashback calculations for **millions of transactions**, utilizing an optimized mathematical algorithm to determine rewards. 
 
 The project benchmarks three major computing architectures:
 * **Sequential:** Traditional serial processing (Baseline: **20.71s**).
@@ -113,7 +113,7 @@ The performance metrics demonstrate a significant leap in efficiency when levera
 * **The Solution (Parallel):** By bypassing the GIL and distributing the workload across multiple physical CPU cores, the **Parallel** mode completes the task in just **9.972 seconds**.
 * **Observation:** This implementation achieves a **2.08x speedup**. While system overhead prevents a perfect 1:1 linear speedup, the Parallel mode is **over twice as efficient** as standard execution.
 
-### II. Financial Distribution Insights
+### 2. Financial Distribution Insights
 Analysis of the transaction breakdown (at a rate of 5% cashback):
 
 * **85.0% Product Value:** The core value of the goods processed.
